@@ -31,7 +31,6 @@ body {
 
 .card {
   border: 0px solid white;
-  transform: rotate3d(0, 0, 0, 45deg);
 }
 
 .card img {

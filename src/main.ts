@@ -2,9 +2,9 @@ import './style.css';
 
 const card: HTMLElement = document.querySelector('.card');
 
-console.log(card.clientWidth);
-
 card.addEventListener('mousemove', (event: Event): void => {
+  card.style.transition = 'transform 0s ease-in-out';
+
   const position = event as MouseEvent;
   let angleX;
   let angleY;
@@ -13,19 +13,22 @@ card.addEventListener('mousemove', (event: Event): void => {
     angleX = 1 - (card.clientHeight - position.offsetY) / (card.clientHeight / 2);
     console.log(1 - (card.clientHeight - position.offsetY) / (card.clientHeight / 2));
   } else {
-    angleX = (card.clientHeight / 2) / (card.clientHeight - position.offsetY);
-    console.log((card.clientHeight / 2) / (card.clientHeight - position.offsetY));
+    angleX = -1 - (1 - (card.clientHeight) / (card.clientHeight - position.offsetY));
+    //console.log(-1 - (1 - (card.clientHeight) / (card.clientHeight - position.offsetY)));
   }
 
   if (position.offsetX > card.clientWidth / 2) {
     angleY = 1 - (card.clientWidth - position.offsetX) / (card.clientWidth / 2);
     //console.log(1 - (card.clientWidth - position.offsetX) / (card.clientWidth / 2));
   } else {
-    angleY = (card.clientWidth / 2) / (card.clientWidth - position.offsetX);
-    //console.log((card.clientWidth / 2) / (card.clientWidth - position.offsetX));
+    angleY = -1 - (1 - (card.clientWidth) / (card.clientWidth - position.offsetX));
+    //console.log(-1 - (1 - (card.clientWidth) / (card.clientWidth - position.offsetX)));
   }
 
-  console.log('--------------------------------');
+  card.style.transform = `rotate3d(${angleX}, ${angleY}, 0, 20deg)`;
+});
 
-  card.style.transform = `rotate3d(${angleX}, ${angleY}, 0, 45deg)`;
+card.addEventListener('mouseout', (): void => {
+  card.style.transition = 'transform .2s ease-in-out';
+  card.style.transform = `rotate3d(0, 0, 0, 20deg)`;
 });
