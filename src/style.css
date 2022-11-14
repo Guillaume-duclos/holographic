@@ -26,11 +26,12 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  perspective: 1000px;
+  perspective: 500px;
 }
 
 .card {
-  border: 0px solid white;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .card img {
