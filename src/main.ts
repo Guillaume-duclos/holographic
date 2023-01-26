@@ -3,17 +3,6 @@ import './style.css';
 const card: HTMLElement = document.querySelector('.card');
 let root = document.documentElement;
 
-console.log('OK');
-
-window.addEventListener("deviceorientation", handleOrientation, true);
-
-function handleOrientation(event: DeviceOrientationEvent) {
-  console.log(event.absolute);
-  console.log(event.alpha);
-  console.log(event.beta);
-  console.log(event.gamma);
-}
-
 card.addEventListener('mousemove', (event: Event): void => {
   card.style.transition = 'transform 0s ease-in-out';
 
