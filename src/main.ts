@@ -1,5 +1,6 @@
 import './style.css';
 
+// @ts-ignore
 const card: HTMLElement = document.querySelector('.card');
 let root = document.documentElement;
 
