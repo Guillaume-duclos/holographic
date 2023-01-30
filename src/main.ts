@@ -15,6 +15,7 @@ card.addEventListener('mousemove', (event: Event): void => {
 
   root.style.setProperty('--positionX', `${positionX}%`);
   root.style.setProperty('--positionY', `${positionY}%`);
+  root.style.setProperty('--opacity', '0.7');
 
   let posX;
   let posY;
@@ -41,6 +42,8 @@ card.addEventListener('mousemove', (event: Event): void => {
 });
 
 card.addEventListener('mouseout', (): void => {
+  root.style.setProperty('--opacity', '0');
+
   card.style.transition = 'transform .2s ease-in-out';
   card.style.transform = 'rotateX(0) rotateY(0)';
 });
